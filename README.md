@@ -1,5 +1,7 @@
 # UI5 App + Library + FLP Plugin Monorepo (pnpm)
 
+[![CI](https://github.com/mariokernich/ui5-app-lib-monorepo/actions/workflows/ci.yml/badge.svg)](https://github.com/mariokernich/ui5-app-lib-monorepo/actions/workflows/ci.yml)
+
 A showcase of a **pnpm workspace monorepo** containing three UI5 TypeScript projects that
 work together at development time — without publishing anything to a registry:
 
