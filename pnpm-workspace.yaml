@@ -1,0 +1,8 @@
+packages:
+  - packages/*
+
+allowBuilds:
+  edgedriver: true
+  esbuild: true
+  geckodriver: true
+  ui5-tooling-transpile: true

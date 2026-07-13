@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fiori Launchpad Sandbox</title>
+
+        <!-- Sandbox launchpad configuration: register all apps as tiles here -->
+        <script>
+            window["sap-ushell-config"] = {
+                defaultRenderer: "fiori2",
+                bootstrapPlugins: {
+                    FLPPluginAll: {
+                        component: "com.myorg.myplugin",
+                        url: "http://localhost:8082/",
+                    },
+                },
+                renderers: {
+                    fiori2: {
+                        componentData: {
+                            config: {
+                                enableSearch: true,
+                                rootIntent: "Shell-home",
+                            },
+                        },
+                    },
+                },
+                applications: {
+                    "myapp-display": {
+                        title: "Sample App",
+                        description: "UI5 TypeScript Sample Application",
+                        icon: "sap-icon://detail-view",
+                        applicationType: "URL",
+                        url: "http://localhost:8080/index.html",
+                    },
+                    "mylib-display": {
+                        title: "Sample Lib",
+                        description:
+                            "com.myorg.mylib Example control test page",
+                        icon: "sap-icon://puzzle",
+                        applicationType: "URL",
+                        url: "http://localhost:8081/test-resources/com/myorg/mylib/Example.html",
+                    },
+                },
+            };
+        </script>
+
+        <!-- FLP sandbox bootstrap (sap.ushell is loaded from the SAPUI5 CDN, pinned to an LTS version that still ships the classic sandbox homepage) -->
+        <script src="https://ui5.sap.com/test-resources/sap/ushell/bootstrap/sandbox.js"></script>
+
+        <!-- UI5 bootstrap -->
+        <script
+            id="sap-ui-bootstrap"
+            src="https://ui5.sap.com/resources/sap-ui-core.js"
+            data-sap-ui-libs="sap.m, sap.ushell"
+            data-sap-ui-theme="sap_horizon"
+            data-sap-ui-async="true"
+            data-sap-ui-compat-version="edge"
+            data-sap-ui-frame-options="allow"
+        ></script>
+
+        <script>
+            sap.ui.getCore().attachInit(function () {
+                sap.ushell.Container.createRenderer("fiori2", true).then(
+                    function (oRenderer) {
+                        oRenderer.placeAt("content");
+                    },
+                );
+            });
+        </script>
+    </head>
+    <body class="sapUiBody" id="content"></body>
+</html>

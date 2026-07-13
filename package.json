@@ -1,0 +1,13 @@
+{
+    "name": "ui5-app-lib-monorepo",
+    "private": true,
+    "scripts": {
+        "start": "run-p start:projects start:flp",
+        "start:projects": "pnpm --recursive --parallel --stream run start",
+        "start:flp": "http-server -p 8090 -c-1 --silent -o /flpSandbox.html ."
+    },
+    "devDependencies": {
+        "http-server": "^14.1.1",
+        "npm-run-all2": "^7.0.2"
+    }
+}

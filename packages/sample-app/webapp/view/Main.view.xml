@@ -1,0 +1,26 @@
+<mvc:View
+	controllerName="com.myorg.myapp.controller.Main"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:mylib="com.myorg.mylib"
+	core:require="{
+		formatter: 'com/myorg/myapp/model/formatter'
+	}">
+
+	<Page
+		title="{i18n>appTitle}"
+		id="page">
+		<content>
+			<VBox alignItems="Center">
+				<mylib:GreetingCard
+					id="greetingCard"
+					name="UI5 Developer"
+					color="Highlight"
+					press=".onGreetingCardPress" />
+			</VBox>
+		</content>
+	</Page>
+
+</mvc:View>
