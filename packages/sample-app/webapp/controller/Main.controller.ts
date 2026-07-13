@@ -13,7 +13,7 @@ export default class Main extends BaseController {
 	}
 
 	public onGreetingCardPress(event: GreetingCard$PressEvent): void {
-		const card = event.getSource() as GreetingCard;
+		const card = event.getSource<GreetingCard>();
 		MessageToast.show(`Greeting card pressed by ${card.getName()}`);
 	}
 }

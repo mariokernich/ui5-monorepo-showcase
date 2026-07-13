@@ -1,6 +1,7 @@
 {
     "name": "ui5-app-lib-monorepo",
     "private": true,
+    "packageManager": "pnpm@11.5.1",
     "scripts": {
         "start": "run-p start:projects start:flp",
         "start:projects": "pnpm --recursive --parallel --stream run start",

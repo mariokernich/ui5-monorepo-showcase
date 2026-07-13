@@ -8,13 +8,10 @@
 		"strict": true,
 		"strictNullChecks": false,
 		"strictPropertyInitialization": false,
-		"rootDir": "./webapp",
 		"types": ["@openui5/types", "@types/qunit"],
 		"paths": {
 			"com/myorg/myapp/*": ["./webapp/*"],
-			"com/myorg/mylib/*": [
-				"./node_modules/com.myorg.mylib/src/com/myorg/mylib/*"
-			],
+			"com/myorg/mylib/*": ["../sample-lib/src/com/myorg/mylib/*"],
 			"unit/*": ["./webapp/test/unit/*"],
 			"integration/*": ["./webapp/test/integration/*"]
 		}

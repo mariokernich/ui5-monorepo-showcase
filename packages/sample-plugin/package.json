@@ -12,11 +12,11 @@
 		"ts-typecheck": "tsc --noEmit",
 		"lint": "eslint webapp",
 		"ui5lint": "ui5lint",
-		"test-ui5": "ui5-test-runner --start start-coverage --url http://localhost:8080/test/testsuite.qunit.html --coverage -ccb 50 -ccf 50 -ccl 50 -ccs 50",
-		"test": "npm run lint && npm run test-ui5",
+		"test": "npm run lint && npm run ui5lint",
 		"wdi5": "wdio run ./webapp/test/e2e/wdio.conf.ts"
 	},
 	"devDependencies": {
+		"@eslint/js": "^10.0.1",
 		"@openui5/types": "^1.150.0",
 		"@sapui5/types": "1.150.0",
 		"@ui5/cli": "^4.0.26",

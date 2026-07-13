@@ -31,6 +31,7 @@
     "test": "npm run lint && npm run karma-ci-cov"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@openui5/types": "1.150.0",
     "@types/jquery": "^4.0.1",
     "@types/qunit": "^2.19.14",

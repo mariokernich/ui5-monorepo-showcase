@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
 import { ExampleColor } from "com/myorg/mylib/library";
 import Example from "com/myorg/mylib/Example";
 
