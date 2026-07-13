@@ -1,6 +1,6 @@
 # UI5 App + Library + FLP Plugin Monorepo (pnpm)
 
-[![CI](https://github.com/mariokernich/ui5-app-lib-monorepo/actions/workflows/ci.yml/badge.svg)](https://github.com/mariokernich/ui5-app-lib-monorepo/actions/workflows/ci.yml)
+[![CI](https://github.com/mariokernich/ui5-monorepo-showcase/actions/workflows/ci.yml/badge.svg)](https://github.com/mariokernich/ui5-monorepo-showcase/actions/workflows/ci.yml)
 
 A showcase of a **pnpm workspace monorepo** containing three UI5 TypeScript projects that
 work together at development time — without publishing anything to a registry:
@@ -13,7 +13,7 @@ work together at development time — without publishing anything to a registry:
 | [`flpSandbox.html`](flpSandbox.html)               | Central FLP Sandbox     | `8090`          | One launchpad that hosts the app as a tile and loads the plugin    |
 
 ```
-ui5-app-lib-monorepo/
+ui5-monorepo-showcase/
 ├── package.json            ← root orchestration scripts
 ├── pnpm-workspace.yaml     ← workspace definition
 ├── flpSandbox.html         ← central Fiori Launchpad sandbox (port 8090)

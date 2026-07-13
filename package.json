@@ -1,5 +1,5 @@
 {
-    "name": "ui5-app-lib-monorepo",
+    "name": "ui5-monorepo-showcase",
     "private": true,
     "packageManager": "pnpm@11.7.0",
     "scripts": {
