@@ -26,17 +26,7 @@ builder:
       afterTask: replaceVersion
 server:
   customMiddleware:
-    - name: cors-middleware
-      afterMiddleware: csp
     - name: ui5-tooling-transpile-middleware
       afterMiddleware: compression
     - name: ui5-middleware-livereload
       afterMiddleware: compression
----
-specVersion: "4.0"
-kind: extension
-type: server-middleware
-metadata:
-  name: cors-middleware
-middleware:
-  path: lib/middleware/cors.cjs

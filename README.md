@@ -189,10 +189,10 @@ window["sap-ushell-config"] = {
 
 ```html
 <!-- ushell sandbox bootstrap MUST come before the UI5 bootstrap -->
-<script src="https://ui5.sap.com/1.120.30/test-resources/sap/ushell/bootstrap/sandbox.js"></script>
+<script src="https://ui5.sap.com/test-resources/sap/ushell/bootstrap/sandbox.js"></script>
 <script
     id="sap-ui-bootstrap"
-    src="https://ui5.sap.com/1.120.30/resources/sap-ui-core.js"
+    src="https://ui5.sap.com/resources/sap-ui-core.js"
     data-sap-ui-libs="sap.m, sap.ushell"
     data-sap-ui-theme="sap_horizon"
     data-sap-ui-async="true"
@@ -200,12 +200,6 @@ window["sap-ushell-config"] = {
     data-sap-ui-frame-options="allow"
 ></script>
 ```
-
-> **Why the pinned version `1.120.30`?**
-> The classic sandbox homepage (`createRenderer("fiori2")`, launchpad groups/tiles) is
-> deprecated and broken on current SAPUI5 releases (`setLogonFrameProvider` /
-> `setNavigationBar` errors). 1.120 is the LTS line that still fully supports it. Note
-> that the CDN requires the **full patch version** in the URL — `/1.120/` returns 404.
 
 ### 5. Iframe embedding & clickjacking protection
 
@@ -234,49 +228,6 @@ its own; the launchpad shell loads its component at startup. That's what the
 `bootstrapPlugins` entry above does: the sandbox fetches
 `http://localhost:8082/manifest.json` + `Component.js` and executes the plugin inside
 the shell (e.g. to add header buttons, footer content, …).
-
-Because the launchpad (`:8090`) fetches the plugin resources from another origin
-(`:8082`), the plugin's dev server must send **CORS headers**. This is done with a tiny
-project-local custom middleware:
-
-```js
-// packages/sample-plugin/lib/middleware/cors.cjs
-module.exports = function () {
-	return function (req, res, next) {
-		res.setHeader("Access-Control-Allow-Origin", "*");
-		res.setHeader("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS");
-		res.setHeader("Access-Control-Allow-Headers", "*");
-		if (req.method === "OPTIONS") {
-			res.statusCode = 204;
-			return res.end();
-		}
-		next();
-	};
-};
-```
-
-Registered in the server config, including the extension definition as a second YAML
-document:
-
-```yaml
-# packages/sample-plugin/ui5-test.yaml
-server:
-  customMiddleware:
-    - name: cors-middleware
-      afterMiddleware: csp
-    - name: ui5-tooling-transpile-middleware
-      afterMiddleware: compression
-    - name: ui5-middleware-livereload
-      afterMiddleware: compression
----
-specVersion: "4.0"
-kind: extension
-type: server-middleware
-metadata:
-  name: cors-middleware
-middleware:
-  path: lib/middleware/cors.cjs
-```
 
 The plugin also ships its own standalone sandbox at
 <http://localhost:8082/test/flpSandbox.html> (useful for isolated plugin development —
